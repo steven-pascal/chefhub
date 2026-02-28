@@ -175,13 +175,12 @@
     </div>
 
     <script>
-        function handleStaticSubmit() {
-            async function handleStaticSubmit() {
-    const btnText = document.getElementById('btnText');
+        async function handleStaticSubmit() {
+    const btn = document.querySelector('button[type="button"]');
     const wrap = document.getElementById('form-wrap');
     const success = document.getElementById('success-box');
 
-    // Get form data
+    // Gather data exactly as the function expects it
     const formData = {
         name: document.querySelector('input[name="name"]').value,
         email: document.querySelector('input[name="email"]').value,
@@ -189,30 +188,34 @@
         message: document.querySelector('textarea[name="message"]').value
     };
 
-    btnText.innerHTML = "SENDING...";
+    btn.innerText = "SENDING...";
+    btn.disabled = true;
 
     try {
-        // Send form data to Netlify Function. engineer steven changala, software engineer, full stack developer, chef, founder of chefhub, contact me, email me, software development, web development, mobile app development, software engineering, chef services, private chef, culinary experiences
-const response = await fetch('/.netlify/functions/send-email', { // Must start with /.
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-});
+        const response = await fetch('/.netlify/functions/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
 
         if (response.ok) {
             wrap.classList.add('hidden');
             success.classList.remove('hidden');
         } else {
-            alert("Something went wrong. Please try again.");
-            btnText.innerHTML = "SUBMIT REQUEST";
+            const errorData = await response.json();
+            alert("Error: " + (errorData.error || "Could not send email"));
+            btn.innerText = "SUBMIT REQUEST";
+            btn.disabled = false;
         }
     } catch (err) {
-        console.error(err);
-        alert("Connection error.");
+        console.error("Connection Error:", err);
+        alert("Check your internet connection or console.");
+        btn.innerText = "SUBMIT REQUEST";
+        btn.disabled = false;
     }
 }
-        }
     </script>
 </body>
 </html>
+
 
