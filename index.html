@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChefHub | Eat good, Study hard</title>
+    <title>ChefHub | Professional Student Dining</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -44,7 +45,7 @@
 
         /* --- HERO --- */
         .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-        .hero-bg { position: absolute; inset: 0; z-index: -1; background: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1600') center/cover no-repeat; filter: brightness(0.4); }
+        .hero-bg { position: absolute; inset: 0; z-index: -1; background: url('./images/pizza.jpg') center/cover no-repeat; filter: brightness(0.4); }
         .hero h1 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; }
         .hero p { max-width: 600px; font-size: 1.2rem; opacity: 0.9; margin: 0 auto 30px; }
 
@@ -136,8 +137,8 @@
         <nav id="navItems">
             <a href="#home">Home</a>
             <a href="#menu">Menu</a>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
+            <a href="./about.html">Know More</a>
+            <a href="./contact.html">Contact Us</a>
             <a href="#reviews">Reviews</a>
         </nav>
         <div style="display:flex; align-items:center; gap:15px;">
@@ -257,16 +258,16 @@
             <div class="footer-links">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
                     <li><a href="#menu">Daily Specials</a></li>
-                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="./about.html">Our Story</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="#">Support Center</a></li>
-                    <li><a href="#">Hostel Delivery</a></li>
+                    <li><a href="./contact.html">Support Center</a></li>
+                    <li><a href="#menu">Hostel Delivery</a></li>
                 </ul>
             </div>
         </div>
@@ -277,15 +278,15 @@
 
     <script>
         const menuData = [
-            { id: 1, name: "Village Chicken & Nshima", price: 55, prep: 25, img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400" },
-            { id: 2, name: "Grilled Fish & Nshima", price: 45, prep: 20, img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=400" },
-            { id: 3, name: "Gourmet Beef Burger", price: 40, prep: 15, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400" },
-            { id: 4, name: "T-Bone Steak Platter", price: 85, prep: 30, img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400" },
-            { id: 5, name: "Crispy Fried Chicken", price: 35, prep: 12, img: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=400" },
-            { id: 6, name: "Chef's Garden Salad", price: 25, prep: 8, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400" },
-            { id: 7, name: "Double Cheese Pizza", price: 65, prep: 20, img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400" },
-            { id: 8, name: "Classic French Fries", price: 20, prep: 10, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400" },
-            { id: 9, name: "Iced Tropical Drink", price: 15, prep: 3, img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400" }
+            { id: 1, name: "Chicken & Nshima", price: 40, prep: 5, img: "./images/chickenNshima.jpg" },
+            { id: 2, name: "Grilled Fish & Nshima", price: 45, prep: 5, img: "./images/nshimaFish.jpg" },
+            { id: 3, name: "Beef & Nshima", price: 35, prep: 5, img: "./images/beefNshima.jpg" },
+            { id: 4, name: "Rice", price: 20, prep: 10, img: "./images/chickenNshima.jpg" },
+            { id: 5, name: "Crispy Fried Chicken", price: 35, prep: 12, img: "./images/rice.jpg" },
+            { id: 6, name: "Classic Fries", price: 15, prep: 4, img: "./images/chips.jpg" },
+            { id: 7, name: "Delicious Shawama", price: 40, prep: 10, img: "./images/shawama.jpg" },
+            { id: 8, name: "Special Pizza", price: 110, prep: 10, img: "./images/pizzaaa.jpg" },
+            { id: 9, name: "Special Cupcakes", price: 10, prep: 3, img: "./images/cpcakes.jpg" }
         ];
 
         let basket = [];
