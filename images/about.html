@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="./images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story — Chefhub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --charcoal: #1a1c1e;
+            --forest-green: #2d4639;
+            --burnt-orange: #d97706;
+            --soft-cream: #f9f8f4;
+        }
+        body { font-family: 'Lexend', sans-serif; background-color: var(--soft-cream); color: var(--charcoal); }
+        .serif { font-family: 'Fraunces', serif; }
+        
+        .glass-card {
+            background: rgba(26, 28, 30, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-reveal { animation: revealUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+
+        /* Gallery Transitions */
+        .gallery-container img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out, transform 8s ease-out;
+            cursor: zoom-in;
+        }
+        .gallery-container img.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .gallery-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .gallery-btn:hover { background: var(--burnt-orange); color: white; }
+
+        /* Lightbox Overlay */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(26, 28, 30, 0.95);
+            backdrop-filter: blur(20px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        #lightbox.visible { display: flex; opacity: 1; }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        #lightbox.visible img { transform: scale(1); }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <button class="absolute top-10 right-10 text-white text-3xl hover:text-[#d97706] transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Full View">
+        <p id="lightbox-caption" class="absolute bottom-10 serif text-white text-xl italic"></p>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-6 md:px-12 md:py-8 transition-all duration-500">
+        <div class="max-w-[1600px] mx-auto flex items-center justify-between">
+            <a href="/index" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-[#1a1c1e] rounded-xl flex items-center justify-center transition-transform group-hover:rotate-12 duration-300 shadow-lg">
+                    <span class="serif text-[#d97706] text-xl font-bold italic">C</span>
+                </div>
+                <span class="serif text-xl font-bold tracking-tighter mix-blend-difference text-black hidden sm:block">Chefhub.</span>
+            </a>
+
+            <div class="flex items-center gap-1 md:gap-2 p-1.5 glass-card rounded-2xl shadow-xl">
+                <a href="/index" class="px-3 md:px-5 py-2 rounded-xl text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white hover:bg-white/10 transition-all">Home</a>
+                <a href="/menu" class="px-3 md:px-5 py-2 rounded-xl text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white hover:bg-white/10 transition-all">Menu</a>
+                <a href="/about" class="px-3 md:px-5 py-2 rounded-xl text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-[#d97706] bg-white/10 transition-all">Story</a>
+                <a href="/contact" class="px-4 md:px-6 py-2 rounded-xl text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold bg-[#d97706] text-white shadow-lg hover:bg-[#2d4639] transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col lg:flex-row-reverse min-h-screen">
+        
+        <section class="relative w-full lg:w-[45%] flex flex-col">
+            <div class="relative h-[500px] lg:h-[60vh] overflow-hidden bg-[#1a1c1e]">
+                <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&q=80&w=1974" 
+                     class="absolute inset-0 w-full h-full object-cover grayscale-[20%] brightness-50" 
+                     alt="Chef at Work">
+                <div class="absolute bottom-12 left-6 right-6 lg:left-12 lg:right-12 z-20 animate-reveal">
+                    <div class="glass-card p-8 rounded-[2rem] text-white">
+                        <p class="text-[10px] uppercase tracking-[0.5em] text-[#d97706] font-bold mb-4">Our Mission</p>
+                        <h2 class="serif text-3xl font-bold italic">Precision over Pretension.</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex-1 bg-stone-200 overflow-hidden flex flex-col">
+                <div class="absolute top-8 left-12 z-20">
+                    <div class="glass-card px-6 py-3 rounded-full inline-flex items-center gap-4">
+                        <span class="w-2 h-2 rounded-full bg-[#d97706] animate-pulse"></span>
+                        <span class="text-[10px] uppercase tracking-[0.3em] text-white font-bold">Chefhub Moments</span>
+                    </div>
+                </div>
+
+                <div class="relative h-[400px] lg:h-full gallery-container">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1974" class="active" onclick="openLightbox(this)" alt="Interior Sanctuary">
+                    <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&q=80&w=1974" onclick="openLightbox(this)" alt="The Art of Plating">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1974" onclick="openLightbox(this)" alt="Elemental Ingredients">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                    <div class="absolute bottom-10 right-12 z-20 flex gap-4">
+                        <button onclick="prevImage()" class="gallery-btn w-12 h-12 rounded-full flex items-center justify-center text-white border border-white/20">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button onclick="nextImage()" class="gallery-btn w-12 h-12 rounded-full flex items-center justify-center text-white border border-white/20">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="absolute bottom-10 left-12 z-20 flex items-center gap-4">
+                        <div class="w-8 h-[1px] bg-[#d97706]"></div>
+                        <span class="text-[9px] uppercase tracking-[0.4em] text-white font-bold" id="counter">Frame / 001</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex-1 flex flex-col justify-center px-8 py-24 md:px-20 lg:px-32 relative bg-white overflow-y-auto">
+            <div class="animate-reveal mt-12">
+                <header class="mb-16">
+                    <p class="text-xs uppercase tracking-[0.4em] text-[#2d4639] font-bold mb-4">The Narrative</p>
+                    <h1 class="serif text-6xl md:text-8xl font-bold text-[#1a1c1e] leading-none mb-8">Raw. Refined. <br><span class="italic text-[#d97706]">Eternal.</span></h1>
+                    <div class="w-20 h-1.5 bg-[#2d4639]"></div>
+                </header>
+
+                <div class="space-y-12 max-w-2xl text-lg text-[#2d4639] font-light leading-relaxed">
+                    <p>Founded in Kabwe, <span class="font-bold text-[#1a1c1e]">Chefhub</span> began as an experiment in open-flame cooking. We evolved into a sanctuary for those who seek happiness depth.</p>
+                </div>
+
+                <footer class="mt-24 pt-12 border-t border-stone-100">
+                    <h4 class="serif text-2xl italic text-[#2d4639]">Pascal Stevens</h4>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Executive Chef & Founder</p>
+                </footer>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.gallery-container img');
+        const counterText = document.getElementById('counter');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        function updateGallery(newIndex) {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (newIndex + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+            counterText.innerText = `Frame / 00${currentIndex + 1}`;
+        }
+
+        function nextImage() { resetTimer(); updateGallery(currentIndex + 1); }
+        function prevImage() { resetTimer(); updateGallery(currentIndex - 1); }
+        function resetTimer() { clearInterval(autoPlayInterval); autoPlayInterval = setInterval(() => updateGallery(currentIndex + 1), 5000); }
+
+        // Lightbox Logic
+        function openLightbox(imgElement) {
+            lightboxImg.src = imgElement.src;
+            lightboxCaption.innerText = imgElement.alt;
+            lightbox.classList.add('visible');
+            clearInterval(autoPlayInterval); // Stop auto-play while viewing
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('visible');
+            resetTimer(); // Resume auto-play
+        }
+
+        autoPlayInterval = setInterval(() => updateGallery(currentIndex + 1), 5000);
+   headers: {
+    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+}
+   </script>
+</body>
+</html>
