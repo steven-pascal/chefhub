@@ -192,10 +192,14 @@
     btnText.innerHTML = "SENDING...";
 
     try {
-        const response = await fetch('/.netlify/functions/send-email', {
-            method: 'POST',
-            body: JSON.stringify(formData)
-        });
+        // Send form data to Netlify Function. engineer steven changala, software engineer, full stack developer, chef, founder of chefhub, contact me, email me, software development, web development, mobile app development, software engineering, chef services, private chef, culinary experiences
+const response = await fetch('/.netlify/functions/send-email', { 
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
+});
 
         if (response.ok) {
             wrap.classList.add('hidden');
