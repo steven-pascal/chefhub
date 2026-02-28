@@ -1,4 +1,8 @@
 {
+  "name": "chefhub-contact",
+  "version": "1.0.0",
+  "description": "Backend for Chefhub contact form",
+  "main": "index.html",
   "dependencies": {
     "nodemailer": "^6.9.0"
   }
