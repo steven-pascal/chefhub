@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Chefhub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --charcoal: #1a1c1e;
+            --forest-green: #2d4639;
+            --burnt-orange: #d97706;
+            --soft-cream: #f9f8f4;
+        }
+        
+        body { font-family: 'Lexend', sans-serif; background-color: var(--soft-cream); color: var(--charcoal); }
+        .serif { font-family: 'Fraunces', serif; }
+        
+        /* Form Field Visibility Boost */
+        .input-container {
+            position: relative;
+            background: #f8f9fa; /* Light grey to make form visible */
+            border-radius: 12px;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .input-container:focus-within {
+            background: #ffffff;
+            border-color: var(--burnt-orange);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.08);
+        }
+
+        input, textarea, select {
+            background: transparent;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: var(--charcoal);
+            border: none;
+            padding-top: 4px;
+        }
+
+        .glass-panel {
+            background: rgba(26, 28, 30, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        .btn-hover-effect {
+            background-color: var(--burnt-orange);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-hover-effect:hover {
+            background-color: var(--forest-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(45, 70, 57, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        
+        <section class="relative w-full lg:w-[40%] h-[350px] lg:h-screen overflow-hidden">
+            <img src="./images/chefhub.png" class="absolute inset-0 w-full h-full object-cover scale-105 brightness-50" alt="Chefhub">
+            
+            <div class="absolute top-10 left-10 z-20">
+                <a href="index.html" class="text-white uppercase tracking-[0.3em] text-[10px] font-bold border border-white/20 px-6 py-3 rounded-xl hover:bg-white hover:text-black transition-all">
+                    ← Home
+                </a>
+            </div>
+
+            <div class="absolute inset-x-6 bottom-10 lg:inset-x-10 z-20">
+                <div class="glass-panel p-10 rounded-[2rem] text-white">
+                    <h2 class="serif text-4xl font-bold mb-2">Chefhub</h2>
+                    <p class="text-orange-400 text-[10px] uppercase tracking-[0.4em] font-bold mb-6">Established 2026</p>
+                    <p class="text-stone-300 font-light leading-relaxed text-sm mb-8 italic">
+                        "Great food is a journey, not a destination. Join us at the table."
+                    </p>
+                    <div class="flex gap-6 opacity-70">
+                        <a href="#" class="hover:text-orange-400 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="hover:text-orange-400 transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex-1 flex flex-col justify-center bg-white px-6 py-16 md:px-20 lg:px-28">
+            
+            <div id="form-wrap" class="max-w-2xl mx-auto w-full animate-fade">
+                <header class="mb-12">
+                    <h1 class="serif text-5xl md:text-7xl font-bold text-zinc-900 tracking-tighter mb-4">
+                        Inquire <span class="text-[#d97706] italic font-normal">Now</span>
+                    </h1>
+                    <p class="text-zinc-500 text-sm font-medium">Please fill out the form below and our concierge will reach out.</p>
+                </header>
+
+                <form id="staticForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="input-container">
+                            <label class="block text-[10px] uppercase tracking-widest text-zinc-400 font-black mb-1">Full Name</label>
+                            <input type="text" name="name" placeholder="steven changala" required>
+                        </div>
+                        <div class="input-container">
+                            <label class="block text-[10px] uppercase tracking-widest text-zinc-400 font-black mb-1">Email Address</label>
+                            <input type="email" name="email" placeholder="changalasteven371@gmail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-container">
+                        <label class="block text-[10px] uppercase tracking-widest text-zinc-400 font-black mb-1">Service Required</label>
+                        <select name="service" class="cursor-pointer font-medium text-zinc-800">
+                            <option>Dinner Reservation</option>
+                            <option>Private Event</option>
+                            <option>Chef's Table Experience</option>
+                        </select>
+                    </div>
+
+                    <div class="input-container">
+                        <label class="block text-[10px] uppercase tracking-widest text-zinc-400 font-black mb-1">Your Message</label>
+                        <textarea name="message" rows="3" placeholder="Tell us more about your request..."></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="button" onclick="handleStaticSubmit()" class="btn-hover-effect w-full md:w-auto px-12 py-5 rounded-xl text-white text-[11px] uppercase tracking-[0.3em] font-black flex items-center justify-center gap-4">
+                            Submit Request <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="success-box" class="hidden max-w-md mx-auto text-center animate-fade">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full mb-8">
+                    <i class="fa-solid fa-check text-3xl"></i>
+                </div>
+                <h2 class="serif text-5xl font-bold text-zinc-900 mb-4">Thank You.</h2>
+                <p class="text-zinc-500 leading-relaxed mb-10">Your message has been received. We'll get back to you within 24 hours.</p>
+                <button onclick="window.location.reload()" class="text-orange-600 text-xs font-black uppercase tracking-widest hover:text-zinc-900 transition-colors">
+                    ← Send another message
+                </button>
+            </div>
+
+            <footer class="mt-20 pt-10 border-t border-zinc-100 flex flex-col md:flex-row justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <p class="text-[9px] uppercase font-bold text-zinc-400">Visit Us</p>
+                        <p class="text-xs font-bold text-zinc-800">Munkoyo ST, Kabwe</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="text-[9px] uppercase font-bold text-zinc-400">Call Us</p>
+                        <p class="text-xs font-bold text-zinc-800">+260 760 969 592</p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+
+    <script>
+        function handleStaticSubmit() {
+            async function handleStaticSubmit() {
+    const btnText = document.getElementById('btnText');
+    const wrap = document.getElementById('form-wrap');
+    const success = document.getElementById('success-box');
+
+    // Get form data
+    const formData = {
+        name: document.querySelector('input[name="name"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        service: document.querySelector('select[name="service"]').value,
+        message: document.querySelector('textarea[name="message"]').value
+    };
+
+    btnText.innerHTML = "SENDING...";
+
+    try {
+        const response = await fetch('/.netlify/functions/send-email', {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            wrap.classList.add('hidden');
+            success.classList.remove('hidden');
+        } else {
+            alert("Something went wrong. Please try again.");
+            btnText.innerHTML = "SUBMIT REQUEST";
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Connection error.");
+    }
+}
+        }
+    </script>
+</body>
+</html>
